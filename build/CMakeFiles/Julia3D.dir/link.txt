@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,libJulia3D.so -o libJulia3D.so CMakeFiles/Julia3D.dir/src/core.c.o CMakeFiles/Julia3D.dir/src/shader.c.o CMakeFiles/Julia3D.dir/extern/glad/src/glad.c.o   -L/home/m_yasinhan/Coding/Julia3D/extern/glfw/lib  -Wl,-rpath,/home/m_yasinhan/Coding/Julia3D/extern/glfw/lib -Wl,-Bstatic -lglfw3 -Wl,-Bdynamic 
