@@ -6,6 +6,7 @@ project(Julia3D VERSION 0.1)
 include_directories(
 "extern/glfw/include"
 "extern/glad/include"
+"extern/cglm/include"
 "extern/stb_image")
 
 #external sources
@@ -14,11 +15,13 @@ file(GLOB EXTERN_SOURCES
 
 #external library names
 set(LIBRARIES
-"libglfw3.a")
+"libglfw3.a"
+"libcglm.a")
 
 #external library directories
 set(LIBRARY_DIRECTORIES
-"extern/glfw/lib")
+"extern/glfw/lib"
+"extern/cglm/lib")
 
 link_directories(${LIBRARY_DIRECTORIES})
 
