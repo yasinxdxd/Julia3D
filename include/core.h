@@ -1,7 +1,7 @@
 #ifndef _JULIA3D_CORE_H_
 #define _JULIA3D_CORE_H_
 
-#include "defs.h"
+#include <defs.h>
 
 JULIA3D_CORE struct _J3DWindow;
 typedef struct _J3DWindow* J3DWindow;
