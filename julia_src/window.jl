@@ -1,7 +1,7 @@
 module j3d
 
-    include("core.jl")
-    include("private.jl")
+    include("private/core.jl")
+    include("private/private.jl")
 
     mutable struct Window
 
