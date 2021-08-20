@@ -1,3 +1,0 @@
-/home/m_yasinhan/Coding/Julia3D/build/CMakeFiles/rebuild_cache.dir
-/home/m_yasinhan/Coding/Julia3D/build/CMakeFiles/edit_cache.dir
-/home/m_yasinhan/Coding/Julia3D/build/CMakeFiles/Julia3D.dir
