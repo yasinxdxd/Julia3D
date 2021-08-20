@@ -5,7 +5,7 @@
 struct _J3DShaderProgram
 {
     const char* vertex_shader_source, fragment_shader_source;
-    unsigned int shader_program;
+    ui32_t shader_program;
 };
 
 void j3d_compile_shader(J3DShaderProgram program)
@@ -14,12 +14,12 @@ void j3d_compile_shader(J3DShaderProgram program)
     // ------------------------------------
     
     // vertex shader
-    unsigned int vertex_shader = glCreateShader(GL_VERTEX_SHADER);
+    ui32_t vertex_shader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertex_shader, 1, &program->vertex_shader_source, NULL);
     glCompileShader(vertex_shader);
     
     // check for shader compile errors
-    int success;
+    i32_t success;
     char infoLog[512];
     glGetShaderiv(vertex_shader, GL_COMPILE_STATUS, &success);
     if (!success)
@@ -29,7 +29,7 @@ void j3d_compile_shader(J3DShaderProgram program)
     }
 
     // fragment shader
-    unsigned int fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
+    ui32_t fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragment_shader, 1, &program->fragment_shader_source, NULL);
     glCompileShader(fragment_shader);
     
