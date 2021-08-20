@@ -10,6 +10,7 @@ JULIA3D_CORE void j3d_window_create(J3DWindow window, size_t width, size_t heigh
 JULIA3D_CORE bool j3d_window_initialize(J3DWindow window);
 JULIA3D_CORE bool j3d_window_is_close(J3DWindow window);
 JULIA3D_CORE void j3d_window_poll_event(void);
+JULIA3D_CORE void j3d_window_set_title(J3DWindow window, const char* title);
 JULIA3D_CORE void j3d_window_clear(J3DWindow window);
 JULIA3D_CORE void j3d_window_display(J3DWindow window);
 JULIA3D_CORE void j3d_window_destroy(J3DWindow window);

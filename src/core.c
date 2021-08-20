@@ -67,6 +67,11 @@ JULIA3D_CORE bool j3d_window_is_close(J3DWindow window)
     return (bool)glfwWindowShouldClose(window->m_window);
 }
 
+JULIA3D_CORE void j3d_window_set_title(J3DWindow window, const char* title)
+{
+    glfwSetWindowTitle(window->m_window, title);
+}
+
 JULIA3D_CORE void j3d_window_poll_event(void)
 {
     glfwPollEvents();

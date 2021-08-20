@@ -23,6 +23,11 @@ module j3d
         ccall(j3dloader.window_is_close, Cchar, (Ref{_private.J3DWindow}, ), window.m_window)
     end
 
+    function SetTitle(window::Window, title::String)
+        window.m_title = title
+        ccall(j3dloader.window_set_title, Cvoid, (Ref{_private.J3DWindow}, Cstring), window.m_window, window.m_title)
+    end
+
     function PollEvent()
         ccall(j3dloader.window_poll_event, Cvoid, ())
     end
