@@ -27,8 +27,8 @@ include_directories("include")
 
 #local sources
 file(GLOB LOCAL_SOURCES
-"src/core.c"
-"src/shader.c")
+"src/*.c"
+"src/components/*.c")
 
 add_library(Julia3D SHARED ${LOCAL_SOURCES} ${EXTERN_SOURCES})
 target_link_libraries(Julia3D ${LIBRARIES})
