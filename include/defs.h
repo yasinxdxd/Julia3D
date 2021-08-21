@@ -6,6 +6,7 @@
 
 #define JULIA3D_CORE
 #define JULIA3D_COMPONENTS
+#define JULIA3D_CLASS_COMPS
 
 #define bool	int8_t
 #define true	1

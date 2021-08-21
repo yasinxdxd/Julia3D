@@ -1,4 +1,4 @@
-#include <components/components.h>
+#include <classes/classes.h>
 #include <stb_image.h>
 #include <stdio.h>
 #include <glad/glad.h>
@@ -10,7 +10,7 @@ struct _Texture
 	ui8_t* m_data;
 };
 
-JULIA3D_COMPONENTS bool j3d_texture_load(Texture texture, const char* file_path)
+JULIA3D_CLASS_COMPS bool j3d_texture_load(Texture texture, const char* file_path)
 {
     texture->m_data = stbi_load(file_path, &texture->m_width, &texture->m_height, &texture->m_nr_channels, 0);
     
@@ -27,7 +27,7 @@ JULIA3D_COMPONENTS bool j3d_texture_load(Texture texture, const char* file_path)
     return true;
 }
 
-JULIA3D_COMPONENTS bool j3d_texture_create(Texture texture)
+JULIA3D_CLASS_COMPS bool j3d_texture_create(Texture texture)
 {
     glGenTextures(1, &texture->m_texture);
     glBindTexture(GL_TEXTURE_2D, texture->m_texture);
@@ -37,7 +37,7 @@ JULIA3D_COMPONENTS bool j3d_texture_create(Texture texture)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 }
 
-JULIA3D_COMPONENTS bool j3d_texture_destroy(Texture texture)
+JULIA3D_CLASS_COMPS bool j3d_texture_destroy(Texture texture)
 {
     if(texture->m_data)
         stbi_image_free(texture->m_data);
