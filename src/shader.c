@@ -1,17 +1,80 @@
 #include <shader.h>
 #include <glad/glad.h>
 #include <stdio.h>
+#include <string.h>
 
 struct _J3DShaderProgram
 {
-    const char* vertex_shader_source, fragment_shader_source;
+    char* vertex_shader_source;
+    char* fragment_shader_source;
     ui32_t shader_program;
 };
 
-JULIA3D_CORE void j3d_compile_shader(J3DShaderProgram program)
+JULIA3D_CORE void j3d_load_shader_sources(J3DShaderProgram program, const char* vert_path, const char* frag_path)
+{
+
+    FILE* vert_file;
+    vert_file = fopen(vert_path, "r");
+
+    if(vert_file == NULL)
+    {
+        printf("Vertex Shader file couldn't open, or find!");
+        fclose(vert_file);
+        return;
+    }
+    
+    char vert_line[256];
+
+    FILE* stream_v;
+    size_t len_v;
+    stream_v = open_memstream(&program->vertex_shader_source, &len_v);
+
+    while(fgets(vert_line, sizeof(vert_line), vert_file) != NULL)
+    {    
+        fprintf(stream_v, vert_line);
+    }
+
+    fclose(stream_v);
+    fclose(vert_file);
+
+
+///////////////////////////////////////////////////
+
+    FILE* frag_file;
+    frag_file = fopen(frag_path, "r");
+
+    if(frag_file == NULL)
+    {
+        printf("Fragment Shader file couldn't open, or find!");
+        fclose(frag_file);
+        return;
+    }
+    
+    char frag_line[256];
+
+    FILE* stream_f;
+    size_t len_f;
+    stream_f = open_memstream(&program->fragment_shader_source, &len_f);
+
+    while(fgets(frag_line, sizeof(frag_line), frag_file) != NULL)
+    {    
+        fprintf(stream_f, frag_line);
+    }
+
+    fclose(stream_f);
+    fclose(frag_file); 
+    
+}
+
+JULIA3D_CORE void j3d_free_shader_sources(J3DShaderProgram program)
+{
+    free(program->vertex_shader_source);
+    free(program->fragment_shader_source);
+}
+
+JULIA3D_CORE void j3d_compile_and_link_shader(J3DShaderProgram program)
 {
     // build and compile our shader program
-    // ------------------------------------
     
     // vertex shader
     ui32_t vertex_shader = glCreateShader(GL_VERTEX_SHADER);

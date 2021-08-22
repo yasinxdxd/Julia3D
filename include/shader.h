@@ -6,7 +6,8 @@
 struct _J3DShaderProgram;
 typedef struct _J3DShaderProgram* J3DShaderProgram;
 
-JULIA3D_CORE void j3d_load_shader_source(J3DShaderProgram program, const char* frag_path, const char* vert_path);
+JULIA3D_CORE void j3d_load_shader_sources(J3DShaderProgram program, const char* frag_path, const char* vert_path);
+JULIA3D_CORE void j3d_free_shader_sources(J3DShaderProgram program);
 JULIA3D_CORE void j3d_compile_and_link_shader(J3DShaderProgram program);
 
 //uniforms:
