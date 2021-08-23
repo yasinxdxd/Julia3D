@@ -1,6 +1,10 @@
 #project properties
 cmake_minimum_required(VERSION 3.0)
 project(Julia3D VERSION 0.1)
+enable_language(C)
+set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -pthread")
 
 #external include directories
 include_directories(
@@ -15,6 +19,8 @@ file(GLOB EXTERN_SOURCES
 
 #external library names
 set(LIBRARIES
+"dl"
+"m"#math library
 "libglfw3.a"
 "libcglm.a")
 
@@ -36,3 +42,6 @@ file(GLOB LOCAL_SOURCES
 
 add_library(Julia3D SHARED ${LOCAL_SOURCES} ${EXTERN_SOURCES})
 target_link_libraries(Julia3D ${LIBRARIES})
+
+add_executable(main "cmain/main.c" ${LOCAL_SOURCES} ${EXTERN_SOURCES})
+target_link_libraries(main ${LIBRARIES})
