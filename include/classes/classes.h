@@ -32,9 +32,9 @@ JULIA3D_CLASS_COMPS bool j3d_texture_destroy(Texture texture);
 
 struct _Sprite
 {
-    Vertex* m_vertices;
+    struct _Vertex* m_vertices;
     Texture m_texture;
-    J3DShaderProgram m_shader_program;
+    struct _J3DShaderProgram m_shader_program;
 };
 typedef struct _Sprite* Sprite;
 

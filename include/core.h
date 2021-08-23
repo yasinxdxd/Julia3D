@@ -3,6 +3,8 @@
 
 #include <defs.h>
 
+typedef struct GLFWwindow GLFWwindow;
+
 JULIA3D_CORE struct _J3DWindow
 {
     GLFWwindow* m_window;
