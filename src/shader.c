@@ -2,9 +2,10 @@
 #include <glad/glad.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 
-JULIA3D_CORE void j3d_load_shader_sources(J3DShaderProgram program, const char* vert_path, const char* frag_path)
+JULIA3D_CORE void j3d_shader_load_sources(J3DShaderProgram program, const char* vert_path, const char* frag_path)
 {
 
     FILE* vert_file;
@@ -60,13 +61,13 @@ JULIA3D_CORE void j3d_load_shader_sources(J3DShaderProgram program, const char* 
     
 }
 
-JULIA3D_CORE void j3d_free_shader_sources(J3DShaderProgram program)
+JULIA3D_CORE void j3d_shader_free_sources(J3DShaderProgram program)
 {
     free(program->vertex_shader_source);
     free(program->fragment_shader_source);
 }
 
-JULIA3D_CORE void j3d_compile_and_link_shader(J3DShaderProgram program)
+JULIA3D_CORE void j3d_shader_compile_and_link(J3DShaderProgram program)
 {
     // build and compile our shader program
     
@@ -112,6 +113,16 @@ JULIA3D_CORE void j3d_compile_and_link_shader(J3DShaderProgram program)
     }
     glDeleteShader(vertex_shader);
     glDeleteShader(fragment_shader);
+}
+
+JULIA3D_CORE void j3d_shader_use(J3DShaderProgram program)
+{
+    glUseProgram(program->shader_program);
+}
+
+JULIA3D_CORE void j3d_shader_destroy(J3DShaderProgram program)
+{
+    glDeleteProgram(program->shader_program);
 }
 
 JULIA3D_CORE void uniform1d(J3DShaderProgram program, const char* name, double value)
