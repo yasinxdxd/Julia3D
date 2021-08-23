@@ -3,7 +3,13 @@
 
 #include <defs.h>
 
-JULIA3D_CORE struct _J3DWindow;
+JULIA3D_CORE struct _J3DWindow
+{
+    GLFWwindow* m_window;
+    size_t m_width;
+    size_t m_height;
+    char* m_title;
+};;
 typedef struct _J3DWindow* J3DWindow;
 
 JULIA3D_CORE void j3d_window_create(J3DWindow window, size_t width, size_t height, const char* title);

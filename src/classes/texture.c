@@ -4,12 +4,6 @@
 #include <stdio.h>
 #include <glad/glad.h>
 
-struct _Texture
-{
-    ui32_t m_texture;
-    i32_t m_width, m_height, m_nr_channels;
-	ui8_t* m_data;
-};
 
 JULIA3D_CLASS_COMPS bool j3d_texture_load(Texture texture, const char* file_path)
 {

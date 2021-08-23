@@ -3,16 +3,10 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-JULIA3D_CORE struct _J3DWindow
-{
-    GLFWwindow* m_window;
-    size_t m_width;
-    size_t m_height;
-    char* m_title;
-};
 
 JULIA3D_CORE void j3d_window_create(J3DWindow window, size_t width, size_t height, const char* title)
 {
+    window->m_window = NULL;
     window->m_width = width;
     window->m_height = height;
     window->m_title = title;

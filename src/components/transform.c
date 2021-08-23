@@ -3,13 +3,6 @@
 #include <cglm/vec3.h>
 #include <cglm/mat4.h>
 
-struct _Transform
-{
-    vec3 m_position;
-    vec3 m_rotation;
-    vec3 m_scale;
-
-};
 
 JULIA3D_COMPONENTS void j3d_transform_set_position(Transform transform, vec3 pos)
 {

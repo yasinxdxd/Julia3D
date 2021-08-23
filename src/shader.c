@@ -3,12 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 
-struct _J3DShaderProgram
-{
-    char* vertex_shader_source;
-    char* fragment_shader_source;
-    ui32_t shader_program;
-};
 
 JULIA3D_CORE void j3d_load_shader_sources(J3DShaderProgram program, const char* vert_path, const char* frag_path)
 {
