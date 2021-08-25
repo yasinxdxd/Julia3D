@@ -5,6 +5,7 @@
 #include <classes/classes.h>
 #include <cglm/vec3.h>
 #include <cglm/vec4.h>
+#include <cglm/mat4.h>
 
 struct _Transform
 {
@@ -39,11 +40,20 @@ typedef struct _MeshRenderer* MeshRenderer;
 
 struct _SpriteRenderer
 {
-    Sprite m_sprite;
+    Texture m_texture;
+    struct _Vertex* m_vertices;
     vec4 m_color;
     Material m_material;
+    struct _J3DShaderProgram m_shader_program;
     
 };
 typedef struct _SpriteRenderer* SpriteRenderer;
+
+struct _Camera
+{
+    mat4 projection_matrix;//ortho or perspective
+    mat4 view_matrix;
+};
+typedef struct _Camera* Camera;
 
 #endif//_JULIA3D_COMPONENTS_H_
