@@ -18,25 +18,27 @@ struct _Vertex
 };
 typedef struct _Vertex* Vertex;
 
+
+typedef enum TEXTURE_SHAPE
+{
+    J3D_TEXTURE_3D = 0x806F,
+    J3D_TEXTURE_2D = 0x0DE1,
+    J3D_TEXTURE_1D = 0x0DE0,
+
+} TEXTURE_SHAPE;
+
 struct _Texture
 {
     ui32_t m_texture;
     i32_t m_width, m_height, m_nr_channels;
 	ui8_t* m_data;
+    TEXTURE_SHAPE m_shape;
 };
 typedef struct _Texture* Texture;
 
 JULIA3D_CLASS_COMPS bool j3d_texture_load(Texture texture, const char* file_path);
-JULIA3D_CLASS_COMPS bool j3d_texture_create(Texture texture);
+JULIA3D_CLASS_COMPS bool j3d_texture_create(Texture texture, TEXTURE_SHAPE texture_shape, ui32_t wrap_mode, ui32_t filter);
 JULIA3D_CLASS_COMPS bool j3d_texture_destroy(Texture texture);
-
-struct _Sprite
-{
-    struct _Vertex* m_vertices;
-    Texture m_texture;
-    struct _J3DShaderProgram m_shader_program;
-};
-typedef struct _Sprite* Sprite;
 
 struct _Material
 {
