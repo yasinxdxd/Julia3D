@@ -15,19 +15,19 @@ module j3dloader
 
     # NON-COMPONENT CLASSES
     # texture
-    texture_load = dlysm(libJulia3D, "j3d_texture_load")
-    texture_create = dlysm(libJulia3D, "j3d_texture_create")
-    texture_destroy = dlysm(libJulia3D, "j3d_texture_destroy")
+    texture_load = dlsym(libJulia3D, "j3d_texture_load")
+    texture_create = dlsym(libJulia3D, "j3d_texture_create")
+    texture_destroy = dlsym(libJulia3D, "j3d_texture_destroy")
 
     # COMPONENTS
     # transform
-    transform_set_position = dlysm(libJulia3D, "j3d_transform_set_position")
-    transform_set_rotation = dlysm(libJulia3D, "j3d_transform_set_rotation")
-    transform_set_scale = dlysm(libJulia3D, "j3d_transform_set_scale")
-    transform_translate = dlysm(libJulia3D, "j3d_transform_translate")
-    transform_rotate = dlysm(libJulia3D, "j3d_transform_rotate")
-    transform_rotate_x = dlysm(libJulia3D, "j3d_transform_rotate_x")
-    transform_rotate_y = dlysm(libJulia3D, "j3d_transform_rotate_y")
-    transform_rotate_z = dlysm(libJulia3D, "j3d_transform_rotate_z")
-    transform_scale = dlysm(libJulia3D, "j3d_transform_scale")
+    transform_set_position = dlsym(libJulia3D, "j3d_transform_set_position")
+    transform_set_rotation = dlsym(libJulia3D, "j3d_transform_set_rotation")
+    transform_set_scale = dlsym(libJulia3D, "j3d_transform_set_scale")
+    transform_translate = dlsym(libJulia3D, "j3d_transform_translate")
+    transform_rotate = dlsym(libJulia3D, "j3d_transform_rotate")
+    transform_rotate_x = dlsym(libJulia3D, "j3d_transform_rotate_x")
+    transform_rotate_y = dlsym(libJulia3D, "j3d_transform_rotate_y")
+    transform_rotate_z = dlsym(libJulia3D, "j3d_transform_rotate_z")
+    transform_scale = dlsym(libJulia3D, "j3d_transform_scale")
 end
