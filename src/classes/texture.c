@@ -6,11 +6,16 @@
 
 JULIA3D_CLASS_COMPS bool j3d_texture_load(Texture texture, const char* file_path)
 {
+    stbi_set_flip_vertically_on_load(true);
+
     texture->m_data = stbi_load(file_path, &texture->m_width, &texture->m_height, &texture->m_nr_channels, 0);
-    
+    const char* err = stbi_failure_reason();
+    if(err)
+			printf("stbi failure reason: %s\n", err);
+
     if(!texture->m_data)
     {
-        perror("Failed to load texture!");
+        perror("Failed to load texture!\n");
         stbi_image_free(texture->m_data);
         return false;
     }
@@ -32,9 +37,13 @@ JULIA3D_CLASS_COMPS bool j3d_texture_load(Texture texture, const char* file_path
 
 JULIA3D_CLASS_COMPS bool j3d_texture_create(Texture texture, TEXTURE_SHAPE texture_shape, ui32_t wrap_mode, ui32_t filter)
 {
+    glEnable(GL_BLEND);
+
     texture->m_shape = texture_shape;
-    glGenTextures(1, &texture->m_texture);
-    glBindTexture(texture_shape, texture->m_texture);
+    texture->m_texture = malloc(sizeof(ui32_t));
+
+    glGenTextures(1, texture->m_texture);//&
+    glBindTexture(texture_shape, *texture->m_texture);//
 
     glTexParameteri(texture->m_shape, GL_TEXTURE_WRAP_S, wrap_mode);//GL_REPEAT
     glTexParameteri(texture->m_shape, GL_TEXTURE_WRAP_T, wrap_mode);//GL_REPEAT
@@ -46,5 +55,6 @@ JULIA3D_CLASS_COMPS bool j3d_texture_destroy(Texture texture)
 {
     //if(texture->m_data != NULL)
         //stbi_image_free(texture->m_data);
-    glDeleteTextures(sizeof(ui32_t), &texture->m_texture);
+    //glDeleteTextures(sizeof(ui32_t), texture->m_texture);//&
+    free(texture->m_texture);
 }
