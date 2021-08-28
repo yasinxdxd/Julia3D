@@ -51,9 +51,21 @@ typedef struct _SpriteRenderer* SpriteRenderer;
 
 struct _Camera
 {
-    mat4 projection_matrix;//ortho or perspective
+    mat4 projection_matrix; //ortho or perspective
     mat4 view_matrix;
+    float field_of_view; //fov (perspective)
+    float size; //size (ortho)
+    struct  _Rect view_port_rect;
+    float near_z, far_z;
+    
 };
 typedef struct _Camera* Camera;
+
+JULIA3D_COMPONENTS void j3d_camera_init_as_perspective(Camera camera, float fov, 
+                                                        float near_z, float far_z,
+                                                        struct _Rect viev_port);
+JULIA3D_COMPONENTS void j3d_camera_init_as_orthographic(Camera camera, float size,
+                                                        float near_z, float far_z,
+                                                        struct _Rect viev_port);
 
 #endif//_JULIA3D_COMPONENTS_H_
