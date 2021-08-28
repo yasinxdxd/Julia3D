@@ -13,7 +13,9 @@
 #define false	0
 
 typedef uint32_t ui32_t;
+typedef uint16_t ui16_t;
 typedef int32_t i32_t;
+typedef int16_t i16_t;
 typedef int8_t i8_t;
 typedef uint8_t ui8_t;
 
