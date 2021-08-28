@@ -19,6 +19,12 @@ struct _Vertex
 typedef struct _Vertex* Vertex;
 
 
+struct _Rect
+{
+    vec2 position;
+    vec2 size;
+};
+
 typedef enum TEXTURE_SHAPE
 {
     J3D_TEXTURE_3D = 0x806F,
@@ -29,7 +35,7 @@ typedef enum TEXTURE_SHAPE
 
 struct _Texture
 {
-    ui32_t m_texture;
+    ui32_t* m_texture;
     i32_t m_width, m_height, m_nr_channels;
 	ui8_t* m_data;
     TEXTURE_SHAPE m_shape;
