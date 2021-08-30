@@ -21,13 +21,11 @@ module j3dloader
 
     # COMPONENTS
     # transform
+    transform_init = dlsym(libJulia3D, "j3d_transform_init")
     transform_set_position = dlsym(libJulia3D, "j3d_transform_set_position")
     transform_set_rotation = dlsym(libJulia3D, "j3d_transform_set_rotation")
     transform_set_scale = dlsym(libJulia3D, "j3d_transform_set_scale")
-    transform_translate = dlsym(libJulia3D, "j3d_transform_translate")
-    transform_rotate = dlsym(libJulia3D, "j3d_transform_rotate")
-    transform_rotate_x = dlsym(libJulia3D, "j3d_transform_rotate_x")
-    transform_rotate_y = dlsym(libJulia3D, "j3d_transform_rotate_y")
-    transform_rotate_z = dlsym(libJulia3D, "j3d_transform_rotate_z")
-    transform_scale = dlsym(libJulia3D, "j3d_transform_scale")
+    transform_set_rotation_x = dlsym(libJulia3D, "j3d_transform_set_rotation_x")
+    transform_set_rotation_y = dlsym(libJulia3D, "j3d_transform_set_rotation_y")
+    transform_set_rotation_z = dlsym(libJulia3D, "j3d_transform_set_rotation_z")
 end

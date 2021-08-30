@@ -12,19 +12,19 @@ struct _Transform
     vec3 m_position;
     vec3 m_rotation;
     vec3 m_scale;
-
+    mat4 model_matrix;
+    
 };
 typedef struct _Transform* Transform;
 
+JULIA3D_COMPONENTS void j3d_transform_init(Transform transform);
 JULIA3D_COMPONENTS void j3d_transform_set_position(Transform transform, vec3 pos);
-JULIA3D_COMPONENTS void j3d_transform_set_rotation(Transform transform, vec3 rot);
+JULIA3D_COMPONENTS void j3d_transform_set_rotation(Transform transform, float angle, vec3 rot);
 JULIA3D_COMPONENTS void j3d_transform_set_scale(Transform transform, vec3 scl);
-JULIA3D_COMPONENTS void j3d_transform_translate(Transform transform, vec3 pos);
-JULIA3D_COMPONENTS void j3d_transform_rotate(Transform transform, float angle, vec3 rot);
-JULIA3D_COMPONENTS void j3d_transform_rotate_x(Transform transform, float angle);
-JULIA3D_COMPONENTS void j3d_transform_rotate_y(Transform transform, float angle);
-JULIA3D_COMPONENTS void j3d_transform_rotate_z(Transform transform, float angle);
-JULIA3D_COMPONENTS void j3d_transform_scale(Transform transform, vec3 scl);
+JULIA3D_COMPONENTS void j3d_transform_set_rotation_x(Transform transform, float angle);
+JULIA3D_COMPONENTS void j3d_transform_set_rotation_y(Transform transform, float angle);
+JULIA3D_COMPONENTS void j3d_transform_set_rotation_z(Transform transform, float angle);
+
 
 struct _MeshFilter
 {
