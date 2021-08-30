@@ -52,4 +52,11 @@ struct _Material
 };
 typedef struct _Material* Material;
 
+struct _Mesh
+{
+    struct _Vertex* m_vertices;
+    ui32_t* m_indices;
+};
+typedef struct _Mesh* Mesh;
+
 #endif//_JULIA3D_CLASSES_H_

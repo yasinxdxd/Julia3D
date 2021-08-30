@@ -13,7 +13,7 @@ struct _Transform
     vec3 m_rotation;
     vec3 m_scale;
     mat4 model_matrix;
-    
+
 };
 typedef struct _Transform* Transform;
 
@@ -28,12 +28,17 @@ JULIA3D_COMPONENTS void j3d_transform_set_rotation_z(Transform transform, float 
 
 struct _MeshFilter
 {
-
+    Mesh m_mesh;
 };
 typedef struct _MeshFilter* MeshFilter;
 
+JULIA3D_COMPONENTS j3d_mesh_filter_load_mesh(MeshFilter mesh_filter, const char* file_path);
+
 struct _MeshRenderer
 {
+    struct _Vertex* m_vertices;//should I remove?
+    Material m_material;
+    struct _J3DShaderProgram m_shader_program;
 
 };
 typedef struct _MeshRenderer* MeshRenderer;
@@ -41,7 +46,7 @@ typedef struct _MeshRenderer* MeshRenderer;
 struct _SpriteRenderer
 {
     Texture m_texture;
-    struct _Vertex* m_vertices;
+    struct _Vertex* m_vertices;//should I remove?
     vec4 m_color;
     Material m_material;
     struct _J3DShaderProgram m_shader_program;
@@ -55,7 +60,7 @@ struct _Camera
     mat4 view_matrix;
     float field_of_view; //fov (perspective)
     float size; //size (ortho)
-    struct  _Rect view_port_rect;
+    struct _Rect view_port_rect;
     float near_z, far_z;
     
 };
