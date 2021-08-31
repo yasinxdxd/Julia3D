@@ -3,6 +3,7 @@
 
 #include <defs.h>
 #include <classes/classes.h>
+#include <vertex_array_buffer_object.h>
 #include <cglm/vec3.h>
 #include <cglm/vec4.h>
 #include <cglm/mat4.h>
@@ -39,6 +40,7 @@ struct _MeshRenderer
     struct _Vertex* m_vertices;//should I remove?
     Material m_material;
     struct _J3DShaderProgram m_shader_program;
+    struct _VertexIndexArrayBufferObject m_viabo;
 
 };
 typedef struct _MeshRenderer* MeshRenderer;
@@ -50,9 +52,15 @@ struct _SpriteRenderer
     vec4 m_color;
     Material m_material;
     struct _J3DShaderProgram m_shader_program;
+    struct _VertexIndexArrayBufferObject m_viabo;
     
 };
 typedef struct _SpriteRenderer* SpriteRenderer;
+
+JULIA3D_COMPONENTS void j3d_sprite_renderer_init(SpriteRenderer sprite_renderer);
+JULIA3D_COMPONENTS void j3d_sprite_renderer_draw(SpriteRenderer sprite_renderer);
+JULIA3D_COMPONENTS void j3d_sprite_renderer_destroy(SpriteRenderer sprite_renderer);
+JULIA3D_COMPONENTS void j3d_sprite_renderer_set_texture(SpriteRenderer sprite_renderer, Texture texture);
 
 struct _Camera
 {
