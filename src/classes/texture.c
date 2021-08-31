@@ -37,13 +37,12 @@ JULIA3D_CLASS_COMPS bool j3d_texture_load(Texture texture, const char* file_path
 
 JULIA3D_CLASS_COMPS bool j3d_texture_create(Texture texture, TEXTURE_SHAPE texture_shape, ui32_t wrap_mode, ui32_t filter)
 {
-    glEnable(GL_BLEND);
+    //glEnable(GL_BLEND);
 
     texture->m_shape = texture_shape;
-    texture->m_texture = malloc(sizeof(ui32_t));
 
-    glGenTextures(1, texture->m_texture);//&
-    glBindTexture(texture_shape, *texture->m_texture);//
+    glGenTextures(1, &texture->m_texture);//&
+    glBindTexture(texture_shape, texture->m_texture);//
 
     glTexParameteri(texture->m_shape, GL_TEXTURE_WRAP_S, wrap_mode);//GL_REPEAT
     glTexParameteri(texture->m_shape, GL_TEXTURE_WRAP_T, wrap_mode);//GL_REPEAT
@@ -53,8 +52,5 @@ JULIA3D_CLASS_COMPS bool j3d_texture_create(Texture texture, TEXTURE_SHAPE textu
 
 JULIA3D_CLASS_COMPS bool j3d_texture_destroy(Texture texture)
 {
-    //if(texture->m_data != NULL)
-        //stbi_image_free(texture->m_data);
-    //glDeleteTextures(sizeof(ui32_t), texture->m_texture);//&
-    free(texture->m_texture);
+    glDeleteTextures(0, &texture->m_texture);//&
 }

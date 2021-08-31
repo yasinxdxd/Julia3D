@@ -35,7 +35,7 @@ typedef enum TEXTURE_SHAPE
 
 struct _Texture
 {
-    ui32_t* m_texture;
+    ui32_t m_texture;
     i32_t m_width, m_height, m_nr_channels;
 	ui8_t* m_data;
     TEXTURE_SHAPE m_shape;
