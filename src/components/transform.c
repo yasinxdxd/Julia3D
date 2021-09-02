@@ -9,6 +9,10 @@ JULIA3D_COMPONENTS void j3d_transform_init(Transform transform)
     j3d_transform_set_rotation(transform, 0, (vec3){0, 0, 0});
     j3d_transform_set_scale(transform, (vec3){0, 0, 0});
 
+    glm_vec3_eqv(transform->m_right_axis, (vec3){ 1.0f, 0.0f, 0.0f });
+    glm_vec3_eqv(transform->m_front_axis, (vec3){ 0.0f, 0.0f, -1.0f});
+    glm_vec3_eqv(transform->m_up_axis, (vec3){ 0.0f, 1.0f, 0.0f });
+
     glm_mat4_identity(transform->model_matrix);
 
 }

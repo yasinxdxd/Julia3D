@@ -14,6 +14,9 @@ struct _Transform
     vec3 m_rotation;
     vec3 m_scale;
     mat4 model_matrix;
+    vec3 m_right_axis;
+	vec3 m_front_axis;
+	vec3 m_up_axis;
 
 };
 typedef struct _Transform* Transform;
@@ -33,7 +36,7 @@ struct _MeshFilter
 };
 typedef struct _MeshFilter* MeshFilter;
 
-JULIA3D_COMPONENTS j3d_mesh_filter_load_mesh(MeshFilter mesh_filter, const char* file_path);
+JULIA3D_COMPONENTS void j3d_mesh_filter_load_mesh(MeshFilter mesh_filter, const char* file_path);
 
 struct _MeshRenderer
 {
