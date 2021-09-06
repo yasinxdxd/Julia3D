@@ -8,12 +8,12 @@ entities = []
 
 
 
-function createEntity()::UInt16
+function CreateEntity()::UInt16
     global id_counter += 1
 end
 
 
-function addComponent(entity, Component)
+function AddComponent(entity, Component)
     if !(entity in entities)
         push!(entities, entity)
         push!(ECS, [])
@@ -25,7 +25,7 @@ function addComponent(entity, Component)
     push!(components[i[1]], Type{typeof(Component)})
 end
 
-function removeComponent(entity, Component)
+function RemoveComponent(entity, Component)
     if !(entity in entities)
        println("no such an entity!!!") 
     end
@@ -38,7 +38,7 @@ function removeComponent(entity, Component)
 	deleteat!(components[i[1]], c[1])
 end
 
-function getComponent(entity, Component)
+function GetComponent(entity, Component)
     i = findall(x->x == entity, entities)
 	if !(Component in components[i[1]])
 		println("entity $(entity) does not contain this component!!!")
@@ -49,20 +49,8 @@ function getComponent(entity, Component)
     return ECS[i[1]][c[1]]
 end
 
-# COMPONENTS
-struct Transform
-    x::Float32
-    y::Float32
-    z::Float32
-
-end
-
-struct SpriteRenderer
-    
-end
-
 #ecs = EntityComponentSystem()
-
+#=
 e1 = createEntity()
 e2 = createEntity()
 e3 = createEntity()
@@ -89,4 +77,4 @@ println(ECS)
 
 removeComponent(e2, Type{Transform})
 println(ECS)
-
+=#
