@@ -1,7 +1,7 @@
 #include <vertex_array_buffer_object.h>
 #include <glad/glad.h>
 
-void j3d_generate_viabo(VertexIndexArrayBufferObject viabo)
+void j3d_viabo_generate(VertexIndexArrayBufferObject viabo)
 {
     //generate VAO:
     glGenVertexArrays(1, &viabo->VAO);
@@ -11,9 +11,9 @@ void j3d_generate_viabo(VertexIndexArrayBufferObject viabo)
     glGenBuffers(1, &viabo->EBO);
 }
 
-void j3d_destroy_viabo(VertexIndexArrayBufferObject viabo)
+void j3d_viabo_destroy(VertexIndexArrayBufferObject viabo)
 {
-    j3d_unbind_vibao(viabo);
+    j3d_vibao_unbind(viabo);
     //delete VAO:
     glDeleteVertexArrays(1, &viabo->VAO);
     //delete VBO:
@@ -22,7 +22,7 @@ void j3d_destroy_viabo(VertexIndexArrayBufferObject viabo)
     glDeleteBuffers(1, &viabo->EBO);
 }
 
-void j3d_bind_vibao(VertexIndexArrayBufferObject viabo)
+void j3d_vibao_bind(VertexIndexArrayBufferObject viabo)
 {
     //bind VAO:
     glBindVertexArray(viabo->VAO);
@@ -32,7 +32,7 @@ void j3d_bind_vibao(VertexIndexArrayBufferObject viabo)
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, viabo->EBO);
 }
 
-void j3d_unbind_vibao(VertexIndexArrayBufferObject viabo)
+void j3d_vibao_unbind(VertexIndexArrayBufferObject viabo)
 {
     //unbind EBO:
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);

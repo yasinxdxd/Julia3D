@@ -9,10 +9,10 @@ JULIA3D_CORE struct _VertexIndexArrayBufferObject
 };
 typedef struct _VertexIndexArrayBufferObject* VertexIndexArrayBufferObject;
 
-void j3d_generate_viabo(VertexIndexArrayBufferObject viabo);
-void j3d_destroy_viabo(VertexIndexArrayBufferObject viabo);
+void j3d_viabo_generate(VertexIndexArrayBufferObject viabo);
+void j3d_viabo_destroy(VertexIndexArrayBufferObject viabo);
 
-void j3d_bind_vibao(VertexIndexArrayBufferObject viabo);
-void j3d_unbind_vibao(VertexIndexArrayBufferObject viabo);
+void j3d_vibao_bind(VertexIndexArrayBufferObject viabo);
+void j3d_vibao_unbind(VertexIndexArrayBufferObject viabo);
 
 #endif//__JULIA3D_VERTEX_INDEX_ARRAY_BUFFER_OBJECT_H_
