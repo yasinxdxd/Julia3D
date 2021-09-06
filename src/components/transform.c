@@ -41,7 +41,9 @@ JULIA3D_COMPONENTS void j3d_transform_set_rotation(Transform transform, float an
 
 JULIA3D_COMPONENTS void j3d_transform_set_scale(Transform transform, vec3 scl)
 {
-    glm_vec3_eqv(transform->m_scale, scl);
+    transform->m_scale[0] = scl[0];
+    transform->m_scale[1] = scl[1];
+    transform->m_scale[2] = scl[2];
     glm_scale(transform->model_matrix, transform->m_scale);
 }
 
